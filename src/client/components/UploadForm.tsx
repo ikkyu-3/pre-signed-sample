@@ -1,10 +1,13 @@
 import * as React from "react";
+import CSSModules from "react-css-modules";
+import styles from "./style.css";
 
 interface UploadState {
   url: string;
   uploadStates: string;
 }
 
+@CSSModules(styles)
 class UploadForm extends React.Component<{}, UploadState> {
   private fileInput: React.RefObject<HTMLInputElement>;
 
@@ -57,7 +60,7 @@ class UploadForm extends React.Component<{}, UploadState> {
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <label styleName="label">
             Pre-Signed URL:
             <input
               type="text"
@@ -66,7 +69,7 @@ class UploadForm extends React.Component<{}, UploadState> {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label styleName="label">
             Upload File:
             <input type="file" ref={this.fileInput} />
           </label>

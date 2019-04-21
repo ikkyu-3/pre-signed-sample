@@ -14,8 +14,8 @@ module.exports = api => {
     "@babel/typescript",
   ];
   const plugins = [
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread",
+    ["@babel/plugin-proposal-decorators", { legacy: true }], // proposal-class-propertiesより前に定義する必要がある
+    ["@babel/plugin-proposal-class-properties", { loose: true }],
   ];
 
   return {
